@@ -38,24 +38,39 @@ function MangaApi() {
         obtenerManga();
     }
   return (
-    <div>
+    <div className='container'>
         <h1>Petición al API de Manga</h1>
-        <button onClick={obtenerManga}>Traer Mangas</button>
-        <button onClick={adelante}>Siguiente</button>
-        <button onClick={atras}>Atrás</button>
+        <button type="button" className='btn btn-primary' onClick={obtenerManga}>Traer Mangas</button>
+        <button type="button" className='btn btn-outline-info' onClick={adelante}>Siguiente</button>
+        <button type="button" className='btn btn-outline-info' onClick={atras}>Atrás</button>
         {
             mangas.map((manga)=>(
-                <div key={manga.mal_id}>
-                    <h3>{manga.mal_id} -  {manga.title}</h3>
-                    <h4>Popularidad:  {manga.popularity}</h4>
-                    <h4>Número de volumenes:  {manga.volumes}</h4>
-                    <img src={manga.images.jpg.large_image_url} alt={manga.title} />
-                    <hr></hr>
-                </div>
-                
+                <div className='container' key={manga.mal_id} >
+                    <div className='d-flex justify-content-center'>
+                        <div className="card" style={{width:'500px',margin: '1% 0%'}}>
+                                <div className="card-header">
+                                    <h5 className="card-title">{manga.mal_id} -  {manga.title}</h5>
+                                </div>
+                               
+                                <div className="card-body">
+                                    <div className='d-flex justify-content-center'>
+                                        <img src={manga.images.jpg.large_image_url} alt={manga.title}/>
+                                    </div>
+                                    
+                                    <p className="card-text">{manga.synopsis}</p>
+                                </div>
+                                <ul className="list-group list-group-flush">
+                                    <li className="list-group-item">Popularidad:  {manga.popularity}</li>
+                                    <li className="list-group-item">Número de volumenes:  {manga.volumes}</li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>  
             ))
         
         }
+       <p>Página {paginacion}</p> <button type='button' className='btn btn-outline-info' onClick={adelante}>Siguiente</button>
+        <button type="button" className='btn btn-outline-info' onClick={atras}>Atrás</button>
 
     </div>
   )
