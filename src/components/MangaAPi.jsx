@@ -16,8 +16,8 @@ function MangaAPi() {
     }
   return (
     <div>
-        <h1>Petición al api de rick and morty</h1>
-        <button onClick={obtenerManga}>Traer Personaje</button>
+        <h1>Petición al API de Manga</h1>
+        <button onClick={obtenerManga}>Traer Mangas</button>
         <button onClick={adelante}>Siguiente</button>
         <button onClick={atras}>Atrás</button>
     </div>
